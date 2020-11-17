@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "@shelf/eslint-config/frontend-typescript"
+  ],
+  "settings": {
+    "react": {
+      "version": "17.0.1"
+    }
+  },
+  "rules": {
+    "react/prop-types": "warn",
+    "no-unused-vars": "warn"
+  }
+}
