@@ -10,12 +10,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import {map} from 'lodash';
 import {
+  Block,
   Contact,
-  Contacts,
   Holder,
-  Info,
   InfoColumn,
   InfoContainer,
+  Label,
   Name,
   Photo,
   Title
@@ -69,18 +69,18 @@ const ContactInfo = () => {
       <InfoContainer>
         <Name>Marianna Milovanova</Name>
         <Title>Web Developer</Title>
-        <Contacts>
+        <Block>
           {map(contacts, (column, key) => (
             <InfoColumn key={key}>
               {map(column, ({icon, info}, key) => (
                 <Contact key={key}>
                   <FontAwesomeIcon icon={icon} style={{height: 20, width: 20}} color={'#45a2bc'} />
-                  <Info>{info}</Info>
+                  <Label>{info}</Label>
                 </Contact>
               ))}
             </InfoColumn>
           ))}
-        </Contacts>
+        </Block>
       </InfoContainer>
     </Holder>
   );

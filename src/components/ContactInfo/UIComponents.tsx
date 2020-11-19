@@ -53,7 +53,7 @@ export const InfoColumn = styled.div`
   flex-direction: column;
 `;
 
-export const Contacts = styled.div`
+export const Block = styled.div`
   display: flex;
   justify-content: center;
 `;
@@ -63,7 +63,7 @@ export const Contact = styled.div`
   align-items: center;
 `;
 
-export const Info = styled.div`
+export const Label = styled.div`
   font-size: 16px;
   padding: 5px 10px;
   line-height: 20px;
