@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "homepage": "http://MariannaMilovanova.github.io/info-page",
   "private": true,
+  "start_url": ".",
   "scripts": {
     "build": "react-scripts build",
     "eject": "react-scripts eject",
@@ -10,7 +11,7 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b develop -d build"
   },
   "browserslist": {
     "production": [
