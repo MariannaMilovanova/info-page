@@ -11,13 +11,16 @@ export const Holder = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const ContentBlock = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.1);
-  width: 50%%;
+  width: 100%%;
   height: 100%;
   text-align: left;
+  padding: 20px 10px;
 `;
 
 export const Title = styled.div`
@@ -25,7 +28,7 @@ export const Title = styled.div`
   font-size: 20px;
   color: #220087;
   text-transform: uppercase;
-  padding: 10px 10px 5px;
+  padding: 10px 10px;
   text-align: center;
 `;
 
@@ -68,6 +71,16 @@ export const Link = styled.a`
   padding: 5px;
 `;
 
+export const Logo = styled.div<{img: string}>`
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  ${({img}) => (img ? `background-image: url(${img})` : '')};
+  width: 23px;
+  height: 23px;
+`;
+
 const Content = () => {
   return (
     <Holder>
@@ -76,9 +89,9 @@ const Content = () => {
         <Block>
           {map(skills, (column, key) => (
             <InfoColumn key={key}>
-              {map(column, ({icon, label}, key) => (
+              {map(column, ({label, img}, key) => (
                 <FlexRow key={key}>
-                  <FontAwesomeIcon icon={icon} style={{height: 20, width: 20}} color={'#45a2bc'} />
+                  <Logo img={img} />
                   <Label>{label}</Label>
                 </FlexRow>
               ))}
@@ -86,7 +99,7 @@ const Content = () => {
           ))}
         </Block>
       </ContentBlock>
-      <ContentBlock>
+      <ContentBlock style={{maxWidth: 800}}>
         <Title>EXPERIENCE</Title>
         {map(experience, ({company, description, role, time, responsibilities, link}, key) => (
           <InfoColumn key={key}>

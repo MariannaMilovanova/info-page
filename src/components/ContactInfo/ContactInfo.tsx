@@ -29,7 +29,7 @@ const contacts = {
     },
     {
       icon: faBirthdayCake,
-      info: 'August 27, 1991'
+      info: 'August 28, 1990'
     },
     {
       icon: faGlobeEurope,

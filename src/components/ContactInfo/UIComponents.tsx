@@ -25,9 +25,8 @@ export const Holder = styled.div`
 `;
 
 export const InfoContainer = styled.div`
-  border: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
-  height: 200px;
+  height: 250px;
   width: 60%;
   justify-content: center;
   align-items: center;
@@ -35,10 +34,10 @@ export const InfoContainer = styled.div`
 `;
 
 export const Name = styled.div`
-  font-size: 30px;
+  font-size: 35px;
   font-weight: 700;
   color: #220087;
-  padding: 5px;
+  padding: 20px;
 `;
 
 export const Title = styled.div`
@@ -65,6 +64,6 @@ export const Contact = styled.div`
 
 export const Label = styled.div`
   font-size: 16px;
-  padding: 5px 10px;
+  padding: 8px 5px 2px 10px;
   line-height: 20px;
 `;
