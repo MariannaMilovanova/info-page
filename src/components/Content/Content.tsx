@@ -3,24 +3,25 @@ import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {map} from 'lodash';
 import {faCalendarAlt} from '@fortawesome/free-solid-svg-icons';
+import {Card} from 'antd';
 import {experience, skills} from './data';
-import {Block, InfoColumn, Label} from '../ContactInfo/UIComponents';
+import {InfoColumn, Label} from '../ContactInfo/UIComponents';
 
 export const Holder = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
 `;
 
 export const ContentBlock = styled.div`
-  border: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%%;
   height: 100%;
   text-align: left;
   padding: 20px 10px;
+  // flex-direction: column;
 `;
 
 export const Title = styled.div`
@@ -28,7 +29,6 @@ export const Title = styled.div`
   font-size: 20px;
   color: #220087;
   text-transform: uppercase;
-  padding: 10px 10px;
   text-align: center;
 `;
 
@@ -84,21 +84,18 @@ export const Logo = styled.div<{img: string}>`
 const Content = () => {
   return (
     <Holder>
-      <ContentBlock>
-        <Title>TECHNOLOGY STACK</Title>
-        <Block>
-          {map(skills, (column, key) => (
-            <InfoColumn key={key}>
-              {map(column, ({label, img}, key) => (
-                <FlexRow key={key}>
-                  <Logo img={img} />
-                  <Label>{label}</Label>
-                </FlexRow>
-              ))}
-            </InfoColumn>
-          ))}
-        </Block>
-      </ContentBlock>
+      <Card hoverable={true} title={<Title>TECHNOLOGY STACK</Title>}>
+        {map(skills, (column, key) => (
+          <InfoColumn key={key}>
+            {map(column, ({label, img}, key) => (
+              <FlexRow key={key}>
+                <Logo img={img} />
+                <Label>{label}</Label>
+              </FlexRow>
+            ))}
+          </InfoColumn>
+        ))}
+      </Card>
       <ContentBlock style={{maxWidth: 800}}>
         <Title>EXPERIENCE</Title>
         {map(experience, ({company, description, role, time, responsibilities, link}, key) => (

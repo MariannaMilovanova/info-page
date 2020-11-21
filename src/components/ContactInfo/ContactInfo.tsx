@@ -9,6 +9,7 @@ import {
   faPhone
 } from '@fortawesome/free-solid-svg-icons';
 import {map} from 'lodash';
+import {Typography} from 'antd';
 import {
   Block,
   Contact,
@@ -17,9 +18,10 @@ import {
   InfoContainer,
   Label,
   Name,
-  Photo,
-  Title
+  Photo
 } from './UIComponents';
+
+const {Title} = Typography;
 
 const contacts = {
   column1: [
@@ -67,8 +69,10 @@ const ContactInfo = () => {
     <Holder>
       <Photo />
       <InfoContainer>
-        <Name>Marianna Milovanova</Name>
-        <Title>Web Developer</Title>
+        <Title>Marianna Milovanova</Title>
+        <Title level={2} style={{marginTop: 0}}>
+          Web Developer
+        </Title>
         <Block>
           {map(contacts, (column, key) => (
             <InfoColumn key={key}>
