@@ -11,7 +11,7 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -b develop -d build"
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [

@@ -35,6 +35,12 @@ export const Title = styled.div`
 export const FlexRow = styled.div`
   display: flex;
   align-items: center;
+  padding: 2px 0;
+`;
+
+export const FlexColumn = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const List = styled.ul`
@@ -71,11 +77,11 @@ export const Link = styled.a`
   padding: 5px;
 `;
 
-export const Logo = styled.div<{img: string}>`
+export const Logo = styled.div<{img: string; color?: string}>`
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: transparent;
+  ${({color}) => (color ? `background-color: ${color}` : 'transparent')};
   ${({img}) => (img ? `background-image: url(${img})` : '')};
   width: 23px;
   height: 23px;
@@ -84,18 +90,32 @@ export const Logo = styled.div<{img: string}>`
 const Content = () => {
   return (
     <Holder>
-      <Card hoverable={true} title={<Title>TECHNOLOGY STACK</Title>}>
-        {map(skills, (column, key) => (
-          <InfoColumn key={key}>
-            {map(column, ({label, img}, key) => (
-              <FlexRow key={key}>
-                <Logo img={img} />
-                <Label>{label}</Label>
-              </FlexRow>
-            ))}
-          </InfoColumn>
-        ))}
-      </Card>
+      <FlexColumn>
+        <Card
+          hoverable={true}
+          title={<Title style={{color: 'white'}}>TECHNOLOGY STACK</Title>}
+          style={{backgroundColor: '#2a303b'}}
+        >
+          {map(skills, (column, key) => (
+            <InfoColumn key={key} style={{padding: '0 20px'}}>
+              {map(
+                column,
+                ({label, img, color}: {label: string; img: string; color?: string}, key) => (
+                  <FlexRow key={key}>
+                    <Logo img={img} color={color} />
+                    <Label style={{color: 'white'}}>{label}</Label>
+                  </FlexRow>
+                )
+              )}
+            </InfoColumn>
+          ))}
+        </Card>
+        <Card
+          hoverable={true}
+          title={<Title style={{color: 'white'}}>Languages</Title>}
+          style={{backgroundColor: '#2a303b', flexGrow: 1}}
+        ></Card>
+      </FlexColumn>
       <ContentBlock style={{maxWidth: 800}}>
         <Title>EXPERIENCE</Title>
         {map(experience, ({company, description, role, time, responsibilities, link}, key) => (

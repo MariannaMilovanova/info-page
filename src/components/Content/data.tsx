@@ -40,7 +40,7 @@ export const skills = {
     },
     {
       label: 'SSR / Next.js',
-
+      color: 'white',
       img: next
     }
   ],
@@ -70,7 +70,8 @@ export const skills = {
     },
     {
       label: 'AWS / AWS Lambda',
-      img: aws
+      img: aws,
+      color: 'white'
     }
   ],
   set5: [
